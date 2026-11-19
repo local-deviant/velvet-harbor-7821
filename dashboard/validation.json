@@ -1,0 +1,40 @@
+{
+ "rows": 198,
+ "totalImpliedUsd": 1560631764,
+ "topImpliedUsd": 54526695,
+ "farmCounts": {
+  "FARM": 44,
+  "THIN": 109,
+  "SKIP": 45
+ },
+ "medianFarmNet": 40.06,
+ "loo": 3.25,
+ "timeSplit": 2.24,
+ "walkForward": 2.82,
+ "rangeHold": 0.67,
+ "band": 4.7678,
+ "bandCoverage": 0.49,
+ "oddsHoldoutBrier": 0.2171,
+ "oddsHoldoutHit": 0.66,
+ "oddsTimeSplitBrier": 0.2404,
+ "ledger": {
+  "total": 758,
+  "ranked": 198,
+  "trades": 158,
+  "symbolOnly": 258,
+  "setAside": 144,
+  "setAsideReasons": {
+   "versioned pool": 11,
+   "below board cut (TVL)": 38,
+   "Bridge": 17,
+   "Canonical Bridge": 9,
+   "CEX (exchange)": 42,
+   "Liquid Staking": 24,
+   "Restaked BTC": 2,
+   "Liquid Restaking": 1
+  }
+ },
+ "slope": 0.5,
+ "intercept": 7.6842,
+ "r2offsets": 0.4511
+}

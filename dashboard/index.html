@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Token Radar v4 — 198 pre-token protocols, ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <h1>Token Radar <span class="v">v4</span></h1>
+    <p class="sub">198 pre-token protocols, ranked by implied value. Fitted on 109 traded comparables. Snapshot <span id="asOf"></span>. <a href="00-proof.md">Read the proof</a>.</p>
+  </div>
+  <div class="mast-kpi"><div id="kpiTotal" class="mast-num"></div><div class="mast-lab">total implied value</div></div>
+</header>
+
+<section class="cover" aria-label="Evidence">
+  <div class="census" id="census"></div>
+  <div class="formula" id="formula"></div>
+  <div class="ablation" id="ablation"></div>
+  <div class="scatter-wrap">
+    <h2>Size curve: market cap against TVL (log-log)</h2>
+    <div id="scatter"></div>
+    <p class="legend"><span class="dot kept"></span> kept comparable &nbsp;<span class="dot flagged"></span> flagged: leave-one-out miss &gt; &times;3.2 &nbsp;<span class="dot dropped"></span> dropped: mcap/TVL outside [0.02, 20] &nbsp;<span class="dot top25"></span> top-25 candidates (implied value)</p>
+    <p class="note" id="scatterNote"></p>
+  </div>
+  <div class="whatif" id="whatif"></div>
+</section>
+
+<section class="strip" id="validationStrip" aria-label="Validation"></section>
+<section class="strip kpi" id="kpiStrip" aria-label="Key numbers"></section>
+
+<section class="controls">
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="filters">
+    <label>Chain <select id="fChain"></select></label>
+    <label>Category <select id="fCat"></select></label>
+    <label>TVL <select id="fTvl"><option value="">any</option><option value="50">$50M+</option><option value="100">$100M+</option><option value="500">$500M+</option><option value="1000">$1B+</option></select></label>
+    <label>7d <select id="fChg"><option value="">any</option><option value="up">growing</option><option value="down">falling</option></select></label>
+    <label>Search <input id="fSearch" type="search" placeholder="name or slug"></label>
+  </div>
+  <div class="plan">
+    <span class="plan-lab">Farm plan (re-prices every row):</span>
+    <label>Deposit <select id="cPlan"><option value="1000">$1,000</option><option value="10000">$10,000</option></select></label>
+    <label>Drop share <select id="cDrop"><option value="0.035">3.5%</option><option value="0.07" selected>7%</option><option value="0.14">14%</option></select></label>
+    <label>Farmer share <select id="cShare"><option value="0.00001">0.001%</option><option value="0.00002" selected>0.002%</option><option value="0.00004">0.004%</option></select></label>
+    <label>T-bill <select id="cTbill"><option value="0">0%</option><option value="0.04" selected>4%</option><option value="0.08">8%</option></select></label>
+    <span class="plan-note" id="planNote"></span>
+  </div>
+</section>
+
+<main>
+  <table id="board">
+    <thead><tr>
+      <th>#</th><th>Protocol</th><th>Category</th><th>Chain</th><th class="num">TVL</th><th class="num">7d</th>
+      <th class="num">Value if it launches</th><th class="num">Odds</th><th class="num">Implied</th>
+      <th class="band">P25–P75 band</th><th class="num">Rank range</th>
+      <th class="num">Net $</th><th class="num">Net/h</th><th class="num">Break-even odds</th><th>Verdict</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="count" id="rowCount"></p>
+  <section id="method" hidden>
+    <h2>Method, in one page</h2>
+    <div id="methodBody"></div>
+  </section>
+</main>
+
+<aside id="drawer" hidden aria-label="Protocol detail">
+  <button id="drawerClose" aria-label="Close detail">×</button>
+  <div id="drawerBody"></div>
+</aside>
+
+<footer>
+  <p id="ledger"></p>
+  <p>Source: DefiLlama protocols snapshot, as-of <span id="asOf2"></span>. Gas prices are stated assumptions, not snapshot data; see the proof. The board is a ranking of the entry's own implied values, not a prediction that any token launches.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
